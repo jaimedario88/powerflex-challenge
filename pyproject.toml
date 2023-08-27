@@ -21,6 +21,9 @@ djangorestframework-stubs = { extras = [
     "compatible-mypy",
 ], version = "^3.14.2" }
 
+[tool.ruff]
+line-length = 120
+
 [tool.mypy]
 plugins = ["mypy_django_plugin.main"]
 
