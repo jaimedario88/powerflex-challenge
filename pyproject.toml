@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "powerflex-challenge"
+version = "0.1.0"
+description = "Challenge for Powerflex dev position"
+authors = ["Jaime Jaramillo <jaimedario88@gmail.com>"]
+readme = "README.md"
+packages = [{include = "powerflex_challenge"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
