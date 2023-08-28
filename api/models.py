@@ -29,7 +29,7 @@ class SprocketType(models.Model):
 
 class Sprocket(models.Model):
     factory = models.ForeignKey(to=Factory, on_delete=models.CASCADE)
-    sprocket = models.ForeignKey(to=SprocketType, on_delete=models.CASCADE)
+    sprocket_type = models.ForeignKey(to=SprocketType, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

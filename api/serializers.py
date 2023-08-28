@@ -1,6 +1,7 @@
+from typing import Any
 from rest_framework import serializers
 
-from api.models import Factory, Sprocket
+from api.models import Factory, Sprocket, SprocketType
 
 
 class FactoryDataSerializer(serializers.Serializer):
@@ -30,7 +31,24 @@ class FactorySerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class SprocketTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SprocketType
+        fields = "__all__"
+
+
 class SprocketSerializer(serializers.ModelSerializer):
+    sprocket_type = serializers.PrimaryKeyRelatedField(
+        queryset=SprocketType.objects.all()
+    )
+
+    def to_representation(self, instance: Any) -> Any:
+        ret = super().to_representation(instance)
+        ret["sprocket_type"] = SprocketTypeSerializer(
+            instance=instance.sprocket_type, context=self.context
+        ).data
+        return ret
+
     class Meta:
         model = Sprocket
         fields = "__all__"
