@@ -119,3 +119,7 @@ This example will edit the sprocket type:
         "created_at": "2023-08-28T02:54:04.661407Z",
         "factory": 2
     }
+
+## Credits
+
+This codebase was made by Jaime Jaramillo using open source tools for the challenge proposed by the Powerflex interview team.
