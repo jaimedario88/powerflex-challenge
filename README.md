@@ -36,6 +36,17 @@ A PostgreSQL database is used, the apllication saves the data from the models us
     api_sprocket
     api_sprocket_type
 
+## Django Admin
+
+The info on the tables can be easily checked out using Django's built in Admin, I configured a basic admin module for the required tables, you may access this through the URL on your web browser:
+
+    http://localhost:8000/admin
+
+with the following access credentials
+
+    username: admin
+    password: admin
+
 ### 1st Requirement
 
 "An endpoint that returns all sprocket factory data"
