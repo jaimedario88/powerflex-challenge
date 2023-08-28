@@ -4,13 +4,13 @@ version = "0.1.0"
 description = "Challenge for Powerflex dev position"
 authors = ["Jaime Jaramillo <jaimedario88@gmail.com>"]
 readme = "README.md"
-packages = [{ include = "powerflex_challenge" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"
 django = "^4.2.4"
 djangorestframework = "^3.14.0"
 gunicorn = "^21.2.0"
+whitenoise = "^6.5.0"
 
 
 [tool.poetry.group.dev.dependencies]
