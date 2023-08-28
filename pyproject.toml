@@ -11,12 +11,9 @@ django = "^4.2.4"
 djangorestframework = "^3.14.0"
 gunicorn = "^21.2.0"
 whitenoise = "^6.5.0"
-
+psycopg2-binary = "^2.9.7"
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.7.0"
-pylint = "^2.17.5"
-pylint-django = "^2.5.3"
 django-stubs = { extras = ["compatible-mypy"], version = "^4.2.3" }
 djangorestframework-stubs = { extras = [
     "compatible-mypy",
