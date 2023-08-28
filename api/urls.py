@@ -4,9 +4,11 @@ from rest_framework import routers
 from . import views
 
 router = routers.DefaultRouter()
-router.register(r"sprocket/factory", views.SprocketFactoryViewSet)
-router.register(r"sprocket", views.SprocketViewSet)
-router.register(r"factory", views.FactoryViewSet)
+router.register(
+    r"sprocket/factory", views.SprocketFactoryViewSet
+)  # Get sprockets for a given factory id (read only)
+router.register(r"sprocket", views.SprocketViewSet)  # CRUD for sprockets
+router.register(r"factory", views.FactoryViewSet)  # CRUD for factories
 
 urlpatterns = [
     path(r"api/", include(router.urls)),
