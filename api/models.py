@@ -12,8 +12,11 @@ class Factory(models.Model):
         verbose_name_plural = "factories"
 
 
-class Sprocket(models.Model):
-    factory = models.ForeignKey(to=Factory, on_delete=models.CASCADE)
+class SprocketType(models.Model):
+    name = models.CharField(
+        verbose_name=("name"),
+        max_length=1023,
+    )
     teeth = models.IntegerField(verbose_name=("teeth"))
     pitch_diameter = models.DecimalField(
         verbose_name=("pitch diameter"), max_digits=10, decimal_places=4
@@ -22,6 +25,11 @@ class Sprocket(models.Model):
         verbose_name=("pitch diameter"), max_digits=10, decimal_places=4
     )
     pitch = models.IntegerField(verbose_name=("pitch"))
+
+
+class Sprocket(models.Model):
+    factory = models.ForeignKey(to=Factory, on_delete=models.CASCADE)
+    sprocket = models.ForeignKey(to=SprocketType, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

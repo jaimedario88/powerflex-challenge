@@ -4,26 +4,26 @@ from api.models import Factory, Sprocket
 
 
 class FactoryDataSerializer(serializers.Serializer):
-    sprocket_production_actual = serializers.ReadOnlyField()
-    sprocket_production_goal = serializers.ReadOnlyField()
-    time = serializers.ReadOnlyField()
+    sprocket_production_actual = serializers.SerializerMethodField()
+    sprocket_production_goal = serializers.SerializerMethodField()
+    time = serializers.SerializerMethodField()
 
-    def get_sprocket_production_actual(self):
-        self.factoryproductionrecord_set.values_list(
+    def get_sprocket_production_actual(self, obj):
+        return obj.factoryproductionrecord_set.values_list(
             "sprocket_production_actual", flat=True
         )
 
-    def get_sprocket_production_goal(self):
-        self.factoryproductionrecord_set.values_list(
+    def get_sprocket_production_goal(self, obj):
+        return obj.factoryproductionrecord_set.values_list(
             "sprocket_production_goal", flat=True
         )
 
-    def get_time(self):
-        self.factoryproductionrecord_set.values_list("timestamp", flat=True)
+    def get_time(self, obj):
+        return obj.factoryproductionrecord_set.values_list("timestamp", flat=True)
 
 
 class FactorySerializer(serializers.ModelSerializer):
-    chart_data = FactoryDataSerializer()
+    chart_data = FactoryDataSerializer(source="*")
 
     class Meta:
         model = Factory
